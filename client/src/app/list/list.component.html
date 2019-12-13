@@ -1,0 +1,45 @@
+<button (click)="toggle()">{{ selection }}</button>
+
+<table border="1" *ngIf="selection==='show future'">
+    <tr>
+        <th>Title</th>
+        <th>Host</th>
+        <th>Theme</th>
+        <th>When</th>
+        <th>Where</th>
+        <th># Participants</th>
+        <th>Actions</th>
+    </tr>
+    <tr *ngFor="let party of past_parties">
+        <td><a [routerLink]="['/party', party._id]">{{ party.title }}</a></td>
+        <td>{{ party.host }}</td>
+        <td>{{ party.theme}}</td>
+        <td>{{ party.when }}</td>
+        <td>{{ party.where }}</td>
+        <td>{{ party.participants.length }}</td>
+        <td><a href="#!" (click)="delete(party._id)">&times;</a></td>
+    </tr>
+</table>
+
+<br>
+
+<table border="1" *ngIf="selection==='show past'">
+    <tr>
+        <th>Title</th>
+        <th>Host</th>
+        <th>Theme</th>
+        <th>When</th>
+        <th>Where</th>
+        <th># Participants</th>
+        <th>Actions</th>
+    </tr>
+    <tr *ngFor="let party of future_parties">
+        <td><a [routerLink]="['/party', party._id]">{{ party.title }}</a></td>
+        <td>{{ party.host }}</td>
+        <td>{{ party.theme}}</td>
+        <td>{{ party.when }}</td>
+        <td>{{ party.where }}</td>
+        <td>{{ party.participants.length }}</td>
+        <td><a href="#!" (click)="delete(party._id)">&times;</a></td>
+    </tr>
+</table>

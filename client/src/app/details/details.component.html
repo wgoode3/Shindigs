@@ -1,0 +1,25 @@
+<fieldset>
+    <legend>
+        <h3>{{ party.title }}</h3>
+    </legend>
+    <p>Host: {{ party.host }}</p>
+    <p>Theme: {{ party.theme }}</p>
+    <p>When: {{ party.when }}</p>
+    <p>Where: {{ party.where }}</p>
+</fieldset>
+
+<fieldset>
+    <legend>
+        <h4>Attendies</h4>
+    </legend>
+    <ul>
+        <li *ngFor="let participant of party.participants">{{ participant.name }}</li>
+    </ul>
+    <form (submit)="addParticipant()">
+        <p>
+            Participant Name:&nbsp;
+            <input type="text" name="joiner.name" [(ngModel)]="joiner.name"/>
+            <input type="submit" value="Add to Party" />
+        </p>
+    </form>
+</fieldset>

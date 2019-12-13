@@ -1,0 +1,33 @@
+<form (submit)="planParty()">
+    <div>
+        <label>Title</label>
+        <input type="text" name="party.title" [(ngModel)]="party.title" />
+        <span *ngIf="errors.title">{{ errors.title.message }}</span>
+    </div>
+    <div>
+        <label>Host</label>
+        <input type="text" name="party.host" [(ngModel)]="party.host" />
+        <span *ngIf="errors.host">{{ errors.host.message }}</span>
+    </div>
+    <div>
+        <label>Theme</label>
+        <select name="party.theme" [(ngModel)]="party.theme">
+            <option>Pirates</option>
+            <option>Black and White</option>
+            <option>Roman</option>
+            <option>Pizza</option>
+        </select>
+        <span *ngIf="errors.theme">{{ errors.theme.message }}</span>
+    </div>
+    <div>
+        <label>When</label>
+        <input type="datetime-local" name="party.when" [(ngModel)]="party.when" />
+        <span *ngIf="errors.when">{{ errors.when.message }}</span>
+    </div>
+    <div>
+        <label>Where</label>
+        <input type="text" name="party.where" [(ngModel)]="party.where" />
+        <span *ngIf="errors.where">{{ errors.where.message }}</span>
+    </div>
+    <input type="submit" value="It's a party!" />
+</form>
